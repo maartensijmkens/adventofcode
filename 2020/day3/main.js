@@ -18,16 +18,16 @@ function part1(values, right = 3, down = 1) {
         x += right;
         x %= w;
     }
-    return trees
+    return trees;
 }
 
 function part2(values) {
-    let product = 1
-    const slopes = [[1,1],[3,1],[5,1],[7,1],[1,2]]
+    let product = 1;
+    const slopes = [[1,1],[3,1],[5,1],[7,1],[1,2]];
     for ([right, down] of slopes) {
-        product *= part1(values, right, down)
+        product *= part1(values, right, down);
     }
-    return product
+    return product;
 }
 
 function main() {

@@ -31,12 +31,11 @@ function part1(values) {
 function part2(values) {
     let total = 0;
     for ([password, letter, a, b] of values) {
-        if ((password[a-1] == letter) && (password[b-1] != letter) 
-            || (password[a-1] != letter) && (password[b-1] == letter)) {
+        if ((password[a-1] == letter) != (password[b-1] == letter)) {
             total++;
         }
     }
-    return total    
+    return total ; 
 }
 
 function main() {
