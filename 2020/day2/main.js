@@ -1,13 +1,13 @@
 const fs = require('fs');
 
 function getInput() {
-    let lines = fs.readFileSync('input.txt', "utf8").split("\n");
-    lines.pop();
-    return lines.map(decodeLine);
+    let input = fs.readFileSync('input.txt', "utf8").split("\n");
+    input.pop();
+    return input.map(decodeEntry);
 }
 
-function decodeLine(line) {
-    [head, password] = line.split(': ');
+function decodeEntry(entry) {
+    [head, password] = entry.split(': ');
     [range, letter] = head.split(" ");
     [a, b] = range.split("-").map(x => parseInt(x));
     return [password, letter, a, b];

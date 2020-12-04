@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 function getInput() {
-    let lines = fs.readFileSync('input.txt', "utf8").split("\n\n");
-    return lines.map(decodeLine);
+    let input = fs.readFileSync('input.txt', "utf8").split("\n\n");
+    return input.map(decodeEntry);
 }
 
-function decodeLine(line) {
-    pairs = line.split(/ |\n/).map(p => p.split(':'));
+function decodeEntry(entry) {
+    pairs = entry.split(/ |\n/).map(p => p.split(':'));
     return Object.fromEntries(pairs);
 }
 
