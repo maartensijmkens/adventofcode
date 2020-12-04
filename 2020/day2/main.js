@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-function getValues() {
-    let values = fs.readFileSync('input.txt', "utf8").split("\n");
-    values.pop();
-    return values.map(decodeLine);
+function getInput() {
+    let lines = fs.readFileSync('input.txt', "utf8").split("\n");
+    lines.pop();
+    return lines.map(decodeLine);
 }
 
 function decodeLine(line) {
@@ -17,9 +17,9 @@ function count(array, el) {
     return array.reduce((total,x) => (x==el ? total+1 : total), 0)
 }
 
-function part1(values) {
+function part1(input) {
     let total = 0;
-    for ([password, letter, a, b] of values) {
+    for ([password, letter, a, b] of input) {
         const c = count(password.split(''), letter);
         if (a <= c && c <= b) {
             total++;
@@ -28,9 +28,9 @@ function part1(values) {
     return total
 }
 
-function part2(values) {
+function part2(input) {
     let total = 0;
-    for ([password, letter, a, b] of values) {
+    for ([password, letter, a, b] of input) {
         if ((password[a-1] == letter) != (password[b-1] == letter)) {
             total++;
         }
@@ -39,9 +39,9 @@ function part2(values) {
 }
 
 function main() {
-    const values = getValues();
-    console.log(part1(values));
-    console.log(part2(values));
+    const input = getInput();
+    console.log(part1(input));
+    console.log(part2(input));
 }
 
 main();
