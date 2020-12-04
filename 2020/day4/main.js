@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function getInput() {
-    let input = fs.readFileSync('input.txt', "utf8").split("\n\n");
+    const input = fs.readFileSync('input.txt', "utf8").split("\n\n");
     return input.map(decodeEntry);
 }
 

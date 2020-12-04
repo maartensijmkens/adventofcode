@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function getInput() {
-    let input = fs.readFileSync('input.txt', "utf8").split("\n");
+    const input = fs.readFileSync('input.txt', "utf8").split("\n");
     input.pop();
     return input.map(x => parseInt(x));
 }
