@@ -13,22 +13,17 @@ function part1(input, right = 3, down = 1) {
     let x = 0;
     let trees = 0;
     while (y < h) {
-        if (input[y][x] == '#')
+        if (input[y][x % w] == '#')
             trees++
         y += down;
         x += right;
-        x %= w;
     }
     return trees;
 }
 
 function part2(input) {
-    let product = 1;
     const slopes = [[1,1],[3,1],[5,1],[7,1],[1,2]];
-    for ([right, down] of slopes) {
-        product *= part1(input, right, down);
-    }
-    return product;
+    return slopes.reduce((t, [right,down]) => t * part1(input, right, down), 1);
 }
 
 function main() {
