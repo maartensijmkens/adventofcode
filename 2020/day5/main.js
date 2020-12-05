@@ -7,13 +7,7 @@ function getInput() {
 }
 
 function getSeatId(boardingPass) {
-    id = 0;
-    for (c of boardingPass) {
-        id *= 2;
-        if (c == 'B' || c == 'R')
-            id++;
-    }
-    return id
+    return parseInt(boardingPass.replace(/B|R/g, '1').replace(/F|L/g, '0'),2);
 }
 
 function part1(input) {
