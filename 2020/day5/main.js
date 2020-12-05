@@ -7,21 +7,13 @@ function getInput() {
 }
 
 function getSeatId(boardingPass) {
-    row = boardingPass.slice(0,7);
-    col = boardingPass.slice(7,10);
-    rowNr = 0;
-    colNr = 0;
-    for (i in row) {
-        rowNr *= 2;
-        if (row[i] == 'B')
-            rowNr ++;
+    id = 0;
+    for (c of boardingPass) {
+        id *= 2;
+        if (c == 'B' || c == 'R')
+            id++;
     }
-    for (i in col) {
-        colNr *= 2;
-        if (col[i] == 'R')
-            colNr ++;
-    }
-    return 8*rowNr + colNr;
+    return id
 }
 
 function part1(input) {
