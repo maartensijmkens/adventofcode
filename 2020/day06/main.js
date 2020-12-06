@@ -7,12 +7,12 @@ function getInput() {
 
 function part1(input) {
     const answers = input.map(a => a.join('').split(''));
-    return answers.map(a => new Set(a).size).reduce((t,a) => t + a,0)
+    return answers.map(a => new Set(a).size).reduce((t,a) => t + a)
 }
 
 function part2(input) {
     const uniques = [... new Set(input.map(a => a.join('').split('')).flat())];
-    return input.map(a => uniques.reduce((t,u) => t + a.every(b => b.includes(u)), 0)).reduce((t,a) => t + a,0);
+    return input.map(a => uniques.reduce((t,u) => t + a.every(b => b.includes(u)), 0)).reduce((t,a) => t + a);
 }
 
 function main() {
