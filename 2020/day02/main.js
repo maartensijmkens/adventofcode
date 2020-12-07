@@ -1,15 +1,14 @@
 const fs = require('fs');
 
 function getInput() {
-    const input = fs.readFileSync('input.txt', "utf8").split("\n");
-    input.pop();
+    const input = fs.readFileSync('input.txt', 'utf8').trim().split('\n');
     return input.map(decodeEntry);
 }
 
 function decodeEntry(entry) {
     [head, password] = entry.split(': ');
-    [range, letter] = head.split(" ");
-    [a, b] = range.split("-").map(x => parseInt(x));
+    [range, letter] = head.split(' ');
+    [a, b] = range.split('-').map(x => parseInt(x));
     return [password, letter, a, b];
 }
 
