@@ -11,7 +11,7 @@ function getInput() {
 
 function part1(input) {   
     const counts = [0, 0, 0];
-    
+
     for (let i = 1; i < input.length; i++) {
         const diff = input[i] - input[i-1];
         counts[diff - 1]++;
@@ -19,7 +19,7 @@ function part1(input) {
     return counts[0] * counts[2];
 }
 
-function possibleCominations(input) {
+function part2(input) {
     let count = 1;
     let s = 0;
 
@@ -31,10 +31,6 @@ function possibleCominations(input) {
         }
     }
     return count;
-}
-
-function part2(input) {
-    return possibleCominations(input);
 }
 
 function main() {
